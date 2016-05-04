@@ -24,33 +24,38 @@ initial_OIS;
 %initial expected loss rate
 initial_lossRate;
 
-price_MC=swptn_MC(struc);
-
-%initial forward swap rate
-F=f(m*i1+1:n*i1,1);
-h=H(m*i1+1:n*i1,1);
-f_risky=f+(1+1/i1*f).*H;
-f_risky2=F+(1+1/i1*F).*h;
-df=P0(1,m*i1+1:n*i1);
-floating=df*f_risky2*1/i1;
-fixedAnnty=sum(df(i1:i1:(n-m)*i1))*1/i2;
-s=floating/fixedAnnty;
-struc.s=s;
-struc.fixedAnnty=fixedAnnty;
-struc.f_risky=f_risky;
+%fixed annuity seen at time 0
+A0=sum(P0(1,((m+1)*i1:i1:n*i1)))/i2; struc.A0=A0;
 
 price_FFT=swptn_FFT(struc);
-for j=1:size(K,2)
-    impliedVol_FFT(j)=impVol(s,K(j),m,price_FFT(j)/fixedAnnty);
-end
-plot(K,impliedVol_FFT,'x');
-axis([K(1),K(end),0.1,0.5])
-hold on
 
-for j=1:size(K,2)
-    impliedVol_MC(j)=impVol(s,K(j),m,price_MC(j)/fixedAnnty);
-end
-plot(K,impliedVol_MC,'o');
+% price_MC=swptn_MC(struc);
+% 
+% %initial forward swap rate
+% F=f(m*i1+1:n*i1,1);
+% h=H(m*i1+1:n*i1,1);
+% f_risky=f+(1+1/i1*f).*H;
+% f_risky2=F+(1+1/i1*F).*h;
+% df=P0(1,m*i1+1:n*i1);
+% floating=df*f_risky2*1/i1;
+% fixedAnnty=sum(df(i1:i1:(n-m)*i1))*1/i2;
+% s=floating/fixedAnnty;
+% struc.s=s;
+% struc.fixedAnnty=fixedAnnty;
+% struc.f_risky=f_risky;
+% 
+% price_FFT=swptn_FFT(struc);
+% for j=1:size(K,2)
+%     impliedVol_FFT(j)=impVol(s,K(j),m,price_FFT(j)/fixedAnnty);
+% end
+% plot(K,impliedVol_FFT,'x');
+% axis([K(1),K(end),0.1,0.5])
+% hold on
+% 
+% for j=1:size(K,2)
+%     impliedVol_MC(j)=impVol(s,K(j),m,price_MC(j)/fixedAnnty);
+% end
+% plot(K,impliedVol_MC,'o');
 
 
 
