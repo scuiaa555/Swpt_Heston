@@ -1,9 +1,6 @@
 function price=swptn_FFT(struc)
     A=100;N=100;b=pi*N/A;du=A/N;u=(0:1:N-1)*du;a=1.2;dk=2*pi/N/du;
-    [omg_f,omg_H,alp]=omega0(struc);
-    struc.omg_f=omg_f;
-    struc.omg_H=omg_H;
-    struc.alp=alp;
+    omega
     for j=1:N
         F(j)=exp(1i*b*u(j))*psiT(u(j),a,struc);
     end
@@ -16,6 +13,6 @@ function price=swptn_FFT(struc)
     s=struc.s;K=struc.K;
     C=C.*s;
     kk=log(K/s);
-    C=C*struc.A0;
+    C=C*struc.fixedAnnty;
     price=interp1((-pi:dk:-pi+dk*(N-1)),C,kk,'pchip');
 end

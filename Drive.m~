@@ -33,7 +33,7 @@ struc.s=s;
 
 price_FFT=swptn_FFT(struc);
 
-
+a
 
 % price_MC=swptn_MC(struc);
 % 
