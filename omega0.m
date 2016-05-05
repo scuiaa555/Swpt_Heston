@@ -7,7 +7,7 @@ function [omg_f,omg_H,alp]=omega0(struc)
     end
     for j=m*i1:n*i1-1
         omg_f(j)=0;sum1=0;sum2=0;
-        for k=m*i1:j
+        for k=m*i1:j-1
             sum1=sum1+alp(k)*(f(k+1)+(1+1/i1*f(k+1))*H(k+1)*exp(1/i1*H(k+1)/(1+1/i1*H(k+1))*I(k)));
         end
         for l=m:n-1

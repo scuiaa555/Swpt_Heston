@@ -1,5 +1,5 @@
 function price=swptn_FFT(struc)
-    A=100;N=100;b=pi*N/A;du=A/N;u=(0:1:N-1)*du;a=1.2;dk=2*pi/N/du;
+    A=100;N=100;b=pi*N/A;du=A/N;u=(0:1:N-1)*du;a=1;dk=2*pi/N/du;
     [omg_f,omg_H,alp]=omega0(struc);
     struc.omg_f=omg_f;
     struc.omg_H=omg_H;

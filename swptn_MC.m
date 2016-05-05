@@ -1,5 +1,5 @@
 function price=swptn_MC(struc)
-    Npath=1000;
+    Npath=5000;
     disPayoff=0;
     for npath=1:Npath
         npath
