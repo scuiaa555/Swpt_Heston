@@ -46,9 +46,9 @@ price_MC=swptn_MC(struc);
      impliedVol_MC(j)=impVol(s,K(j),m,price_MC(j)/A0);
  end
  plot(K,impliedVol_MC,'o');
-
-
-
+ legend({'FFT','MC'},'FontSize',20);
+ xlabel({'Strike'},'FontSize',14)
+ ylabel({'Imp Vol.'},'FontSize',13)
 
 
 

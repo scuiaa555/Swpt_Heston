@@ -3,8 +3,8 @@ function val=phi(z,struc)
     dt=1/12;
     A(1)=0;B(1)=0;
     kap=1;eps=1.5;V0=1;theta=1;
-    %rho=-0.5;
-    rho=0;
+    rho=-0.5;
+    %rho=0;
     
     for step=1:m/dt
         a=kap*xiS_bar(m-step*dt,eps,kap,rho,struc)-rho*eps*norm(gamma_mn(m-step*dt,struc))*z;
